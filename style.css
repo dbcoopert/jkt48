@@ -1,0 +1,438 @@
+  * {
+      box-sizing: border-box;
+  }
+
+  body {
+      background-color: rgb(255, 81, 226);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+  }
+
+  h1 {
+      text-align: center;
+      text-shadow: -1px 1px 3px black;
+      text-transform: uppercase;
+      color: white;
+      font-family: Helvetica;
+      animation: gif 2.3s infinite;
+  }
+
+  .container {
+      box-shadow: -1px 1px 3px black;
+      justify-content: center;
+      width: 800px;
+      height: auto;
+      border: 1px solid black;
+      display: flex;
+      border-radius: 7px;
+      background-color: violet;
+      font-family: Helvetica;
+  }
+
+  .container ul {
+      gap: 2em;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      margin-right: 2.5em;
+      justify-content: space-around;
+      position: relative;
+  }
+
+  .container ul li {
+      list-style-type: none;
+      border-radius: 50%;
+      position: relative;
+  }
+
+  ul li a img {
+      border: 2px solid black;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+
+  }
+
+  ul li .bayangan {
+      width: 150px;
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid white;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      background-color: rgba(0, 0, 0, .6);
+      color: white;
+      opacity: 0;
+      transition: all 0.2s ease-in-out;
+  }
+
+
+  ul li a div:hover {
+      opacity: 1;
+      transform: rotate(360deg);
+  }
+
+  .overlay {
+      width: 0;
+      top: 0;
+      left: 0;
+      gap: 2em;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: fixed;
+      background-color: transparent;
+      z-index: 9999;
+      transition: 0.2s ease-in-out;
+      text-align: center;
+
+  }
+
+  .overlay img {
+      object-fit: cover;
+      max-height: 100%;
+      top: 12%;
+      left: 10%;
+      /* position: absolute; */
+      width: 484px;
+      box-shadow: 1px 2px 5px black;
+
+  }
+
+  .overlay:target {
+      width: auto;
+      height: auto;
+      bottom: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, .8);
+  }
+
+  .overlay:target img {
+      animation: fade 0.5s forwards;
+  }
+
+  .overlay .close {
+      position: absolute;
+      top: 30px;
+      left: 720px;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+      background-color: black;
+      line-height: 14px;
+      padding: 8px;
+      border-radius: 50%;
+      transition: 0.2s;
+      font-family: cursive;
+  }
+
+  .overlay .close:hover {
+      background-color: white;
+      color: black;
+  }
+
+  .overlay:target .close,
+  .prev,
+  .next {
+      animation: fade 0.3s forwards;
+  }
+
+  .next,
+  .prev {
+    font-family: cursive;
+      position: absolute;
+      background-color: white;
+      width: 70px;
+      border-radius: 35px;
+      font-weight: bold;
+      text-decoration: none;
+      color: black;
+      border: 1px solid black;
+      text-align: center;
+      line-height: 20px;
+      top: -210px;
+      padding-bottom: 7px;
+      font-size: 30px;
+      z-index: 2;
+      transition: 0.2s;
+  }
+
+  .overlay .next {
+      left: 800px;
+      margin-top: 240px;
+  }
+
+  .overlay .prev {
+      left: 600px;
+      margin-top: 240px;
+  }
+
+  .overlay .prev:hover,
+  .overlay .next:hover {
+      background-color: black;
+      color: white;
+  }
+
+  @keyframes fade {
+      0% {
+          transform: scale(0);
+          opacity: 0;
+      }
+
+      100% {
+          transform: scale(1);
+          opacity: 1;
+      }
+  }
+
+  .deskripsi {
+      font-family: Helvetica;
+      display: flex;
+      justify-content: space-around;
+      gap: 0.5em;
+      flex-direction: column;
+      background-color: white;
+      width: 640px;
+      height: 515px;
+      /* position: absolute; */
+      z-index: 9999;
+      padding: 10px;
+      text-align: left;
+      border-radius: 15px;
+      box-shadow: 0 2px 5px 2px black;
+  }
+
+  .deskripsi p {
+   background-color: rgb(212, 212, 212);
+   padding: 8px;
+   border-radius: 10px;
+  }
+
+  .deskripsi ul {
+    margin-bottom: 10px;
+  }
+
+  .deskripsi ul li .icon {
+    font-size: 25px;
+  }
+
+  .deskripsi ul li a {
+      text-decoration: none;
+      color: orangered;
+      padding: 10px 25px;
+      padding-top: 17px;
+      border-radius: 20px;
+      transition: all 0.2s ease-in-out;
+  }
+
+  .deskripsi ul li:hover a {
+      background-color: aqua;
+      color: white;
+  }
+
+  .deskripsi p {
+      overflow-x: auto;
+  }
+
+  .overlay:target .deskripsi {
+      animation: deskripsi .5s forwards;
+  }
+
+  @keyframes deskripsi {
+      0% {
+          transform: translateX(1200px);
+          opacity: 0;
+      }
+
+      50% {
+          transform: translateX(800px 750px);
+          opacity: .2;
+      }
+
+      100% {
+          transform: translateX(700px 650px);
+          opacity: 1;
+      }
+
+  }
+
+  @keyframes gif {
+
+      0%,
+      100% {
+          transform: translateY(-10px);
+      }
+
+      50% {
+          transform: translateY(10px);
+      }
+  }
+
+  @media screen and (max-width: 700px) {
+
+    .container {
+        width: auto;
+    }
+      .container ul {
+          flex-wrap: wrap;
+          gap: 1em;
+      }
+
+      .overlay img {
+          width: 50%;
+          margin-top: 20px;
+      }
+
+      .overlay .close {
+          left: 310px;
+          top: 30px;
+      }
+
+      .overlay {
+        gap: 1em;
+      }
+
+      .overlay .next,
+      .overlay .prev {
+          width: 50px;
+          line-height: 20px;
+          margin-top: 350px;
+          z-index: 9999;
+      }
+
+      .overlay .next {
+          left: 350px;
+      }
+
+      .overlay {
+          overflow: auto;
+          flex-wrap: wrap;
+          justify-content: center;
+      }
+
+      .overlay .prev {
+          left: 28px;
+      }
+
+      .overlay .deskripsi {
+          height: 400px;
+          width: 70%;
+          font-size: 10px;
+          margin-bottom: 20px;
+      }
+
+      .deskripsi ul {
+        display: flex;
+        flex-wrap: nowrap;
+      }
+
+      .deskripsi ul li .icon {
+        font-size: 15px;
+      }
+
+      .deskripsi ul li a {
+        padding: 6px 20px;
+        padding-top: 10px;
+      }
+  }
+
+        .button {
+            width: 150px;
+            cursor: pointer;
+            text-transform: uppercase;
+            padding: 12px;
+            font-size: 15px;
+            border-radius: 20px;
+            border: transparent;
+            background-color: red;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: -1px 1px 1px 1px black;
+            transition: 0.1s;
+        }
+    
+        .button:hover {
+            background-color: transparent;
+            border: 1px solid white;
+        }
+    
+        .blank {
+            background-color: black;
+            position: fixed;
+            color: white;
+            width: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+    
+        /*ganti posisi p*/
+        .blank .ganti {
+            animation: ganti 0.4s infinite;
+        }
+    
+        /* ganti warna text */
+        .blank p {
+            animation: hacker 0.1s infinite;
+        }
+    
+        /* memunculkan blank */
+        .blank:target {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: auto;
+            animation: error 0.2s infinite;
+            overflow: hidden;
+        }
+    
+    
+        @keyframes error {
+            0% {
+                color: rgb(0, 248, 0);
+    
+            }
+    
+            50% {
+                color: red;
+            }
+    
+            100% {
+                color: rgb(0, 255, 0);
+            }
+        }
+    
+        /* ukuran elemen */
+        @keyframes hacker {
+            0% {
+                transform: scale(1);
+            }
+    
+            100% {
+                transform: translateY(50px);
+            }
+        }
+    
+        /* ganti posisi */
+        @keyframes ganti {
+            0% {
+                order: 0;
+            }
+    
+            100% {
+                order: 2;
+            }
+    
+        }
